@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganga Guardian - Smart River Monitoring</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">🌊</span>
+      <h1>Ganga Guardian</h1>
+      <span class="badge">Smart City Monitoring</span>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-view="map">Live Map</button>
+      <button class="tab" data-view="heatmap">Heatmap</button>
+      <button class="tab" data-view="sensors">Sensor Data</button>
+      <button class="tab" data-view="report">Report Issue</button>
+      <button class="tab" data-view="government">Government Panel</button>
+    </nav>
+    <div class="status-bar">
+      <span id="lastUpdate">Loading...</span>
+      <span class="pulse"></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Map View -->
+    <section id="view-map" class="view active">
+      <div class="map-header">
+        <h2>Pollution Hotspots & Complaints</h2>
+        <div class="legend">
+          <span><span class="dot critical"></span> Critical</span>
+          <span><span class="dot high"></span> High</span>
+          <span><span class="dot medium"></span> Medium</span>
+          <span><span class="dot low"></span> Low</span>
+          <span><span class="dot complaint"></span> Complaint</span>
+        </div>
+      </div>
+      <div id="map" class="map-container"></div>
+    </section>
+
+    <!-- Heatmap View -->
+    <section id="view-heatmap" class="view">
+      <div class="map-header">
+        <h2>Pollution Heatmap</h2>
+        <p class="subtitle">Intensity indicates risk level from sensor data</p>
+        <div class="heatmap-legend">
+          <span><span class="heat-dot pure"></span> Pure / Safe</span>
+          <span><span class="heat-dot normal"></span> Normal</span>
+          <span><span class="heat-dot risky"></span> Highly Risky</span>
+        </div>
+      </div>
+      <div id="heatmap" class="map-container"></div>
+    </section>
+
+    <!-- Sensor Table View -->
+    <section id="view-sensors" class="view">
+      <div class="table-header">
+        <h2>Real-time Sensor Data</h2>
+        <button id="refreshSensors" class="btn">Refresh</button>
+      </div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>pH</th>
+              <th>Turbidity</th>
+              <th>Chemical</th>
+              <th>Risk</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="sensorTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Report Complaint -->
+    <section id="view-report" class="view">
+      <div class="form-card">
+        <h2>Report Pollution Issue</h2>
+        <p class="subtitle">Citizen complaint form with photo evidence</p>
+        <form id="complaintForm">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" required placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" required rows="4" placeholder="Describe the pollution issue..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Latitude</label>
+              <input type="number" name="lat" step="0.0001" required placeholder="25.3176">
+            </div>
+            <div class="form-group">
+              <label>Longitude</label>
+              <input type="number" name="lon" step="0.0001" required placeholder="82.9739">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Photo Evidence</label>
+            <input type="file" name="file" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Complaint</button>
+        </form>
+        <div id="complaintResult" class="result-msg"></div>
+      </div>
+    </section>
+
+    <!-- Government Panel -->
+    <section id="view-government" class="view">
+      <h2>Government Monitoring Analytics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="totalComplaints">-</span>
+          <span class="stat-label">Total Complaints</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="pendingComplaints">-</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-card critical">
+          <span class="stat-value" id="criticalZones">-</span>
+          <span class="stat-label">High-Risk Zones</span>
+        </div>
+      </div>
+      <div class="charts-row">
+        <div class="chart-card">
+          <h3>Chemical Pollution by Zone</h3>
+          <canvas id="chartChemical"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Complaint Status</h3>
+          <canvas id="chartComplaints"></canvas>
+        </div>
+      </div>
+      <div class="zones-table">
+        <h3>Highest Pollution Zones</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Avg Chemical</th>
+              <th>Avg Turbidity</th>
+              <th>Risk Readings</th>
+            </tr>
+          </thead>
+          <tbody id="zonesTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
