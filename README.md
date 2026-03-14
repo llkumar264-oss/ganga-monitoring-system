@@ -1,76 +1,56 @@
-# Ganga Guardian - Smart River Monitoring Platform
-
-A production-quality smart-city environmental monitoring system for river pollution detection and citizen reporting.
-
-## Project Structure
-
-```
-ganga monitoring system/
-├── backend/
-│   ├── main.py           # FastAPI app entry point
-│   ├── database.py       # SQLAlchemy config & session
-│   ├── routers/          # API routes
-│   │   ├── sensors.py    # Sensor data & hotspots
-│   │   ├── complaints.py # Citizen complaints
-│   │   └── analytics.py  # Government analytics
-│   ├── services/         # Business logic
-│   │   ├── pollution_service.py
-│   │   └── ai_pollution_service.py
-│   ├── models/           # SQLAlchemy models
-│   └── schemas/          # Pydantic schemas
-├── dashboard/            # Web dashboard
-│   ├── index.html
-│   ├── app.js
-│   └── style.css
-├── sensor_simulator/
-│   └── simulator.py
-└── uploads/              # Complaint media storage
-```
-
-## Quick Start
-
-### 1. Backend
-
-```bash
-cd backend
-pip install -r requirements.txt
-python -m uvicorn main:app --reload
-```
-
-- API: http://127.0.0.1:8000
-- Swagger: http://127.0.0.1:8000/docs
-
-### 2. Sensor Simulator
-
-```bash
-cd sensor_simulator
-pip install requests
-python simulator.py
-```
-
-### 3. Dashboard
-
-Open `dashboard/index.html` in a browser (or serve via any HTTP server).
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Health check |
-| POST | `/sensor-data` | Ingest sensor data (JSON or query params) |
-| GET | `/pollution-hotspots` | All sensor readings for map |
-| GET | `/heatmap-data` | Heatmap coordinates |
-| POST | `/complaint` | Submit complaint with photo |
-| GET | `/complaint/list` | List complaints |
-| GET | `/complaint/map` | Complaints for map markers |
-| GET | `/analytics` | Full analytics for gov panel |
-| GET | `/analytics/pollution-zones` | Highest pollution zones |
-| GET | `/analytics/complaint-stats` | Complaint statistics |
-
-## Features
-
-- **Live Map**: Pollution hotspots with risk-colored markers; complaint markers
-- **Heatmap**: Intensity visualization of pollution
-- **Sensor Table**: Real-time sensor readings
-- **Citizen Report**: Form to submit pollution complaints with photos
-- **Government Panel**: Analytics, charts, highest pollution zones
+Ganga Guardian – Intelligent River Pollution Monitoring System
+Overview
+Ganga Guardian is an intelligent river monitoring and public complaint tracking platform designed to detect, analyze, and respond to water pollution in real time. The system integrates sensor data monitoring, AI-based pollution analysis, public reporting tools, and administrative dashboards to help authorities and communities monitor river health effectively.
+The platform provides a unified digital ecosystem where environmental data, citizen reports, and analytical insights are combined to identify pollution hotspots and assist decision-makers in taking faster action.
+This project was developed as a scalable prototype for environmental monitoring systems that can be deployed across rivers, lakes, and water bodies.
+Problem Statement
+Despite significant government investments in river cleaning initiatives, pollution monitoring systems often face challenges such as:
+Lack of real-time monitoring
+Delayed identification of pollution sources
+Limited public participation in reporting pollution
+Fragmented data across different monitoring platforms
+Slow response from authorities
+As a result, pollution hotspots remain undetected for long periods and environmental damage continues.
+Solution
+Ganga Guardian introduces a smart monitoring system that combines IoT sensor data, citizen reporting, and AI-based pollution analysis into a single platform.
+The system enables:
+Real-time water quality monitoring using sensor inputs
+Automatic detection of pollution hotspots using data analytics
+Public complaint reporting with media evidence
+AI-generated recommendations for pollution control
+Centralized dashboard for government and municipal authorities
+This integrated system improves transparency, speeds up pollution detection, and enables faster response from authorities.
+Key Features
+Real-time river monitoring using simulated sensor data
+Pollution hotspot identification using water quality parameters
+Citizen complaint reporting with location and media uploads
+AI-based pollution analysis and suggestions
+Interactive dashboard for monitoring environmental data
+REST API backend built with FastAPI
+Database integration using SQLAlchemy
+CORS-enabled APIs for frontend dashboard integration
+System Architecture
+Frontend Dashboard
+Displays pollution hotspots, complaints, and monitoring analytics.
+Backend API
+Handles sensor data ingestion, complaint submissions, and analytics.
+Database
+Stores sensor readings, pollution reports, and complaint records.
+AI Suggestion Engine
+Analyzes water quality parameters and generates pollution insights.
+Sensor Simulator
+Simulates IoT sensor data for testing and demonstration purposes.
+Technology Stack
+Backend
+FastAPI
+Python
+SQLAlchemy
+Database
+SQLite
+Frontend
+HTML
+CSS
+JavaScript
+Additional Tools
+Uvicorn server
+REST API architecture
