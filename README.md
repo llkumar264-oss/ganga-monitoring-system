@@ -1,5 +1,5 @@
 ================================================================================
-                          GANGA MONITERING SYSTEM
+                          GANGA MONITORING SYSTEM
               Intelligent River Pollution Monitoring System
 ================================================================================
 
