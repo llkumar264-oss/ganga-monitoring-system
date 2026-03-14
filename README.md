@@ -1,56 +1,204 @@
-Ganga Guardian – Intelligent River Pollution Monitoring System
-Overview
-Ganga Guardian is an intelligent river monitoring and public complaint tracking platform designed to detect, analyze, and respond to water pollution in real time. The system integrates sensor data monitoring, AI-based pollution analysis, public reporting tools, and administrative dashboards to help authorities and communities monitor river health effectively.
-The platform provides a unified digital ecosystem where environmental data, citizen reports, and analytical insights are combined to identify pollution hotspots and assist decision-makers in taking faster action.
-This project was developed as a scalable prototype for environmental monitoring systems that can be deployed across rivers, lakes, and water bodies.
-Problem Statement
-Despite significant government investments in river cleaning initiatives, pollution monitoring systems often face challenges such as:
-Lack of real-time monitoring
-Delayed identification of pollution sources
-Limited public participation in reporting pollution
-Fragmented data across different monitoring platforms
-Slow response from authorities
-As a result, pollution hotspots remain undetected for long periods and environmental damage continues.
-Solution
-Ganga Guardian introduces a smart monitoring system that combines IoT sensor data, citizen reporting, and AI-based pollution analysis into a single platform.
-The system enables:
-Real-time water quality monitoring using sensor inputs
-Automatic detection of pollution hotspots using data analytics
-Public complaint reporting with media evidence
-AI-generated recommendations for pollution control
-Centralized dashboard for government and municipal authorities
-This integrated system improves transparency, speeds up pollution detection, and enables faster response from authorities.
-Key Features
-Real-time river monitoring using simulated sensor data
-Pollution hotspot identification using water quality parameters
-Citizen complaint reporting with location and media uploads
-AI-based pollution analysis and suggestions
-Interactive dashboard for monitoring environmental data
-REST API backend built with FastAPI
-Database integration using SQLAlchemy
-CORS-enabled APIs for frontend dashboard integration
-System Architecture
+================================================================================
+                          GANGA MONITERING SYSTEM
+              Intelligent River Pollution Monitoring System
+================================================================================
+
+A smart environmental monitoring platform designed to detect river pollution,
+analyze water quality data, and enable public participation in reporting
+pollution incidents. The system integrates sensor data, AI analysis,
+and a monitoring dashboard to help authorities identify pollution hotspots.
+
+================================================================================
+PROJECT OVERVIEW
+================================================================================
+
+Ganga Guardian is an intelligent river monitoring system that combines
+sensor-based pollution detection, public complaint reporting, and AI-based
+analysis to monitor water quality in real time.
+
+The platform helps environmental authorities identify polluted areas quickly,
+track pollution trends, and respond faster to environmental threats.
+
+This project demonstrates how technology can support sustainable water
+management and protect important river ecosystems.
+
+================================================================================
+PROBLEM STATEMENT
+================================================================================
+
+Despite large government investments in river cleaning initiatives,
+pollution monitoring still faces several challenges.
+
+Many pollution sources remain undetected for long periods because
+real-time monitoring infrastructure is limited.
+
+Public reporting systems are often inefficient and lack centralized tracking.
+
+Environmental data is fragmented across multiple systems, making it difficult
+for authorities to quickly identify pollution hotspots and respond effectively.
+
+================================================================================
+PROPOSED SOLUTION
+================================================================================
+
+Ganga Guardian provides a centralized monitoring platform that integrates:
+
+Sensor-based water quality monitoring
+AI-powered pollution analysis
+Public complaint reporting with media uploads
+Pollution hotspot detection
+Administrative monitoring dashboard
+
+This system enables faster identification of pollution sources and allows
+government authorities to take timely action.
+
+================================================================================
+KEY FEATURES
+================================================================================
+
+Real-time river monitoring using sensor data
+AI-generated pollution status and recommendations
+Public complaint reporting with image or video evidence
+Pollution hotspot detection based on sensor readings
+Dashboard for environmental monitoring
+FastAPI-based REST API backend
+Database integration for persistent data storage
+Interactive frontend dashboard for visualization
+
+================================================================================
+SYSTEM ARCHITECTURE
+================================================================================
+
 Frontend Dashboard
-Displays pollution hotspots, complaints, and monitoring analytics.
+Displays pollution hotspots, sensor readings, and complaint reports.
+
 Backend API
 Handles sensor data ingestion, complaint submissions, and analytics.
+
 Database
-Stores sensor readings, pollution reports, and complaint records.
+Stores water quality data and citizen complaints.
+
 AI Suggestion Engine
 Analyzes water quality parameters and generates pollution insights.
+
 Sensor Simulator
-Simulates IoT sensor data for testing and demonstration purposes.
-Technology Stack
+Simulates IoT sensor readings for demonstration and testing.
+
+================================================================================
+TECHNOLOGY STACK
+================================================================================
+
 Backend
-FastAPI
 Python
+FastAPI
 SQLAlchemy
+
 Database
 SQLite
+
 Frontend
 HTML
 CSS
 JavaScript
-Additional Tools
-Uvicorn server
-REST API architecture
+
+Server
+Uvicorn
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+ganga-monitoring-system
+
+backend
+    main.py
+    database.py
+    models.py
+    ai_suggestions.py
+    requirements.txt
+    ganga.db
+
+dashboard
+    index.html
+    style.css
+    app.js
+
+sensor_simulator
+    simulator.py
+
+uploads
+    media files uploaded by users
+
+================================================================================
+INSTALLATION GUIDE
+================================================================================
+
+Clone the repository
+
+git clone https://github.com/yourusername/ganga-guardian.git
+
+Navigate to project directory
+
+cd ganga-guardian/backend
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run the backend server
+
+python -m uvicorn main:app --reload
+
+Open API documentation
+
+http://127.0.0.1:8000/docs
+
+================================================================================
+API ENDPOINTS
+================================================================================
+
+GET /
+
+Returns system status.
+
+POST /sensor-data
+
+Receives water quality sensor readings and stores them in the database.
+
+GET /pollution-hotspots
+
+Returns detected pollution hotspot data.
+
+POST /complaint
+
+Allows users to report pollution with location, description, and media file.
+
+================================================================================
+FUTURE ENHANCEMENTS
+================================================================================
+
+Integration with real IoT water quality sensors
+Machine learning based pollution prediction models
+Satellite-based environmental monitoring
+Government alert system for critical pollution levels
+Mobile application for citizen reporting
+Real-time pollution heatmap visualization
+
+================================================================================
+IMPACT
+================================================================================
+
+The system aims to improve environmental monitoring by providing real-time
+pollution detection, enabling citizen participation, and supporting faster
+government response to pollution incidents.
+
+With scalable architecture, this platform can be expanded to monitor
+multiple rivers and water bodies across different regions.
+
+================================================================================
+LICENSE
+================================================================================
+
+This project is developed for educational and research purposes.
+
+================================================================================
