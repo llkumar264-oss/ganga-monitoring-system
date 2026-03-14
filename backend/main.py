@@ -10,7 +10,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from database import init_db
+from backend.database import init_db
 from routers import sensors, complaints, analytics
 
 logging.basicConfig(
